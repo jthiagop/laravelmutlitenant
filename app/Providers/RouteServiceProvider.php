@@ -30,6 +30,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $centralDomains = $this->centralDomains();
 
+
         $this->routes(function () use ($centralDomains) {
             foreach ($centralDomains as $domain) {
                 Route::middleware('api')
@@ -39,8 +40,8 @@ class RouteServiceProvider extends ServiceProvider
 
                 Route::middleware('web')
                     ->domain($domain)
-
                     ->group(base_path('routes/web.php'));
+
             }
         });
     }
